@@ -5,195 +5,234 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Байкальская усадьба | Путешествия по Бурятии</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* ===== CSS переменные (темы) ===== */
+:root {
+    --primary: #1a5f4b;
+    --primary-light: #2a8b6e;
+    --primary-dark: #0e3d2f;
+    --secondary: #d97706;
+    --secondary-light: #f59e0b;
+    --forest: #1a2a2a;
+    --terracotta: #c45c3a;
+    --cream: #f9f5eb;
+    --sand: #f3e8d2;
+    --ochre: #b8860b;
+}
 
-        body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background: #f8fafc;
-            color: #0f172a;
-            line-height: 1.5;
-        }
+/* ===== Глобальные стили ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.5rem 1.5rem;
-        }
+body {
+    font-family: system-ui, -apple-system, 'Inter', 'Segoe UI', sans-serif;
+    background: white;
+    color: #1a2a2a;
+    line-height: 1.6;
+}
 
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
 
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #0a5c4a, #3b82f6);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 0.5rem;
-        }
+/* ===== Кнопки ===== */
+.btn-primary {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.75rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
 
-        .header p {
-            font-size: 1rem;
-            color: #334155;
-        }
+.btn-primary:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
 
-        /* Навигация */
-        .nav {
-            background: white;
-            border-radius: 3rem;
-            padding: 0.75rem 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-        }
+.btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--primary);
+    padding: 0.7rem 1.5rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid var(--primary);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
 
-        .nav a {
-            text-decoration: none;
-            color: #1e293b;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
+.btn-secondary:hover {
+    background: var(--primary);
+    color: white;
+}
 
-        .nav a:hover {
-            color: #0a5c4a;
-        }
+/* ===== Герой-секция ===== */
+.hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
 
-        /* Герой секция */
-        .hero {
-            background: linear-gradient(135deg, #d4f1f9 0%, #e6f7f0 100%);
-            border-radius: 2rem;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
+.hero__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
 
-        .hero h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
 
-        .hero .badge {
-            background: rgba(10, 92, 74, 0.1);
-            color: #0a5c4a;
-            display: inline-block;
-            padding: 0.25rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-        }
+.hero__content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 800px;
+    padding: 2rem;
+}
 
-        .btn {
-            display: inline-block;
-            background: #0a5c4a;
-            color: white;
-            padding: 0.7rem 1.8rem;
-            border-radius: 2rem;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1rem;
-            transition: background 0.2s;
-            border: none;
-            cursor: pointer;
-        }
+.hero__title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
 
-        .btn:hover {
-            background: #0d7a62;
-        }
+.hero__subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
 
-        /* Секция туров */
-        .section-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin: 2rem 0 1.5rem;
-            text-align: center;
-        }
+/* ===== Карточки туров ===== */
+.tour-card, .route-card, .farm-card {
+    background: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
 
-        .tours-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
+.tour-card:hover, .route-card:hover, .farm-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
 
-        .tour-card {
-            background: white;
-            border-radius: 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s;
-        }
+.tour-card__image, .route-card__image, .farm-card__image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
 
-        .tour-card:hover {
-            transform: translateY(-4px);
-        }
+.tour-card__body, .route-card__body, .farm-card__body {
+    padding: 1.25rem;
+}
 
-        .tour-card .content {
-            padding: 1.2rem;
-        }
+/* ===== Сетки ===== */
+.tours-grid, .routes-catalog-grid, .farms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.75rem;
+}
 
-        .tour-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.25rem;
-        }
+/* ===== Форма бронирования ===== */
+.booking-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
 
-        .tour-card .time {
-            font-size: 0.8rem;
-            color: #0a5c4a;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
+.booking-field {
+    margin-bottom: 1rem;
+}
 
-        .tour-card p {
-            font-size: 0.9rem;
-            color: #475569;
-        }
+.booking-field input,
+.booking-field select,
+.booking-field textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    font-family: inherit;
+}
 
-        /* Форма */
-        .contact-form {
-            background: white;
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            text-align: center;
-            margin: 2rem 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
+.booking-field input:focus,
+.booking-field select:focus,
+.booking-field textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(26, 95, 75, 0.1);
+}
 
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            max-width: 400px;
-            padding: 0.7rem 1rem;
-            margin: 0.5rem auto;
-            border: 1px solid #cbd5e1;
-            border-radius: 2rem;
-            display: block;
-        }
+/* ===== Секции ===== */
+.section {
+    padding: 4rem 0;
+}
 
-        .footer {
-            text-align: center;
-            padding: 2rem 0 0;
-            font-size: 0.8rem;
-            color: #64748b;
-            border-top: 1px solid #e2e8f0;
-            margin-top: 2rem;
-        }
+.section--cream {
+    background: var(--cream);
+}
 
-        @media (max-width: 640px) {
-            .header h1 { font-size: 1.8rem; }
-            .hero h2 { font-size: 1.4rem; }
-            .container { padding: 1rem; }
-        }
+.section--sand {
+    background: var(--sand);
+}
+
+.section--forest {
+    background: var(--forest);
+    color: white;
+}
+
+/* ===== Футер ===== */
+.site-footer {
+    background: var(--forest);
+    color: white;
+    padding: 3rem 1.5rem 1.5rem;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+    .hero__title {
+        font-size: 2rem;
+    }
+    .hero__subtitle {
+        font-size: 1rem;
+    }
+    .section {
+        padding: 2rem 0;
+    }
+    .tours-grid, .routes-catalog-grid, .farms-grid {
+        grid-template-columns: 1fr;
+    }
+    .booking-form {
+        padding: 1.5rem;
+    }
+}
     </style>
 </head>
 <body>
